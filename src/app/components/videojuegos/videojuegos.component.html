@@ -1,0 +1,61 @@
+<div class="text-center">
+	<h1 class="display-4 text-primary">
+	    {{ title }}
+	</h1>
+	<h2 class="display-5 text-secondary">
+		{{ subtitle }}
+	</h2>
+	<img width="200" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+
+	<h3 class="py-4 display-4 text-primary">
+	  {{ titulo }} {{ year }}
+	</h3>
+
+	<h3 class="py-3 my-4 bg-primary text-white">
+		*ngIf
+	</h3>
+
+	<button class="btn btn-primary mb-3" (click)="cambiarJuego()">Cambiar juego</button>
+
+	<h4 class="text-primary" *ngIf="mostrar_retro; else mejor_juego">
+		El juego retro es: {{ juego_retro }}
+	</h4>
+
+	<ng-template #mejor_juego>
+		<h4 class="text-success">
+			El mejor juego es: {{ juego_2018 }}
+		</h4>
+	</ng-template>
+
+	<h3 class="py-3 my-4 bg-primary text-white">
+		[ngClass]
+	</h3>
+
+	<button class="btn btn-success mb-3 mr-1" (click)="activo='success'">
+		Primary
+	</button>
+	<button class="btn btn-secondary mb-3" (click)="activo='secondary'">
+		Secondary
+	</button>
+
+	<p class="text-white p-2 d-none" [ngClass]="{'bg-success d-block': activo === 'success'}">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet dignissimos fugiat explicabo voluptates ex iste aperiam nam unde consequatur ipsa. Cumque ratione deleniti dolores provident, qui itaque earum. Officia, repudiandae.
+	</p>
+
+	<p class="text-white p-2 d-none" [ngClass]="{'bg-secondary d-block': activo === 'secondary'}">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eaque provident, odio maiores cum ullam. Totam quibusdam alias fugiat, harum quidem, voluptatibus ullam cupiditate officia praesentium maxime explicabo, quod nobis!
+	</p>
+
+	<h3 class="py-3 my-4 bg-primary text-white">
+		*ngFor
+	</h3>
+
+	<div class="card-deck">
+		<div class="card" *ngFor="let videojuego of videojuegos; index as i">
+			<img src="{{ videojuego.thumbnailUrl }}" alt="{{ videojuego.title }}">
+			<div class="card-body card-title">
+				{{ i + 1 }}. {{ videojuego.title }}
+			</div>
+		</div>
+	</div>
+</div>
